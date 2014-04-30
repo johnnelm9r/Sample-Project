@@ -18,12 +18,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES
+                                            forKey:@"didShowTut"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)popController:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSLog(@"Dismissing Controller");
 }
 
 @end
